@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class computations {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number of students in INF151: ");
+        int n = sc.nextInt();
+
+        double[] marks = new double[n];
+        double sum = 0;
+        double max = 0;
+        double min = 20;
+        int pass = 0;
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter mark for student " + (i + 1) + " /20 : ");
+            marks[i] = sc.nextDouble();
+
+            sum = sum + marks[i];
+
+            if (marks[i] > max) {
+                max = marks[i];
+            }
+            if (marks[i] < min) {
+                min = marks[i];
+            }
+            if (marks[i] >= 10) {
+                pass++;
+            }
+        }
+
+        double average = sum / n;
+
+        System.out.println("\n===== RESULTS INF151 =====");
+        System.out.println("Total students : " + n);
+        System.out.println("Average mark : " + average + " /20");
+        System.out.println("Highest mark : " + max + " /20");
+        System.out.println("Lowest mark : " + min + " /20");
+        System.out.println("Number passed : " + pass);
+        System.out.println("Number failed : " + (n - pass));
+
+        sc.close();
+    }
+}
